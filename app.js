@@ -29,7 +29,14 @@ form.addEventListener("submit",async function(){
     .catch(e => {
         console.log("Error retrieving data", e)
     })
-});   
+}); 
+const div = document.createElement("div"); 
+const p = document.createElement("p");
+const content = createTextNode(`Description: ${description}, Temp: ${temp}, Feels like: ${feels_like}, Humidity: ${humidity}`);
+p.append(content);
+div.append(p);
+mainContent.append(div);
+
 
 
 
