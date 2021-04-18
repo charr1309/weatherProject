@@ -1,20 +1,40 @@
 console.log("Hello World!\n==========\n");
 
 // PROJECT Section
-console.log("PROJECT:\n==========\n");
+class CurrentWeather {
+    constructor(description, temp, feels_like, humidity){
+        this.description = description;
+        this.temp = temp;
+        this.feels_like = feels_like;
+        this.humidity = humidity;
+}
+
 const city = document.getElementById("city");
 const state = document.getElementById("state");
 const submit = document.getElementById("submit").addEventListener("click", function(){
-    fetch("https://api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={d335ed2d61e33f3cdce01f7e461e3429}")
+
+form.addEventListener("submit",async function(){
+    fetch("https://api.openweathermap.org/data/2.5/weather?q={city},{state}&appid={d335ed2d61e33f3cdce01f7e461e3429}", {
+        mode: "cors",
+    })
     .then(res => {
         return res.json()
     })
     .then(data => {
-
+        description = data.description;
+        temp = data.temp;
+        feels_like = data.feels_like;
+        humidity = data.humidity;
     })
     .catch(e => {
         console.log("Error retrieving data", e)
     })
-})
+});   
+
+
+
+    
+    
+
 
 
